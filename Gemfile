@@ -1,7 +1,8 @@
 source 'http://rubygems.org'
 gemspec
 
-gem 'savon', '1.2.0' 
+gem 'savon' 
+gem 'spree_promotion_tax', :git => 'git://github.com/bluehandtalking/spree_promotion_tax.git'
 
 gem 'exceptional', :git => 'git://github.com/exceptional/exceptional.git'
 
