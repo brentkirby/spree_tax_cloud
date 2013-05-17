@@ -86,23 +86,21 @@ module Spree
       end
 
       def cart_items(line_items)
-	 
-	 index = 0
-
-	 line_items.map do |line_item|
-
-	    { 'CartItem' => { 'Index' => index,
-
-	    'ItemID' => line_item.variant_id,
-
-	    'Price' => line_item.price.to_f.to_s,
-
-	    'Qty' => line_item.quantity }}
-
-	 end
-
+          index = 0
+          line_items.map do |line_item|
+            code = (line_item.product.tax_cloud_code || "00000").to_s
+            {
+              'CartItem' => {
+                'Index' => index,
+                'TIC'   => code,
+                'ItemID' => line_item.variant_id,
+                'Price' => line_item.price.to_f.to_s,
+                'Qty' => line_item.quantity
+              }
+            }
+  	   end
       end
-
+      
 
       def destination_address(address)
 
